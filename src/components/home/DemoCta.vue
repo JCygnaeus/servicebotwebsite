@@ -3,49 +3,24 @@
     <div class="demo-card">
       <div class="demo-copy">
         <h2 class="section-title">Put your first QR code up this week</h2>
-        <p>See the full flow — from scan to resolved case — in a 20-minute demo.</p>
+        <p>
+          In 20 minutes you'll see a real case go from QR scan to booked repair, and get a QR
+          rollout plan for your buildings.
+        </p>
       </div>
 
-      <form v-if="!sent" class="demo-form" @submit.prevent="request_demo()">
-        <label for="demo-email" class="visually-hidden">Work email</label>
-        <input id="demo-email" v-model="email" type="email" placeholder="Work email" required />
-        <button type="submit" class="btn btn-primary" :disabled="sending">
-          {{ sending ? 'Sending...' : 'Book a demo' }}
-        </button>
-        <p v-if="error" class="demo-error">{{ error }}</p>
-      </form>
-
-      <p v-else class="demo-sent">Thanks! We'll be in touch to schedule your demo.</p>
+      <LeadForm id="bottom-demo" />
     </div>
   </section>
 </template>
 
 <script>
-import api from '@/services/api'
+import LeadForm from '@/components/home/LeadForm.vue'
 
 export default {
   name: 'DemoCta',
-  data() {
-    return {
-      email: '',
-      sending: false,
-      sent: false,
-      error: ''
-    }
-  },
-  methods: {
-    async request_demo() {
-      this.sending = true
-      this.error = ''
-      try {
-        await api.post('/demo-requests', { email: this.email })
-        this.sent = true
-      } catch (err) {
-        this.error = 'Could not send the request. Please try again.'
-      } finally {
-        this.sending = false
-      }
-    }
+  components: {
+    LeadForm
   }
 }
 </script>
@@ -67,7 +42,7 @@ export default {
 }
 
 .demo-copy {
-  flex: 1 1 420px;
+  flex: 1 1 380px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -78,37 +53,12 @@ export default {
   color: #2c3a34;
 }
 
-.demo-form {
+.demo-card .lead-form-wrap {
   flex: 1 1 380px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
 }
 
-.demo-form input {
-  flex: 1 1 220px;
-  min-height: 52px;
-  padding: 0 20px;
-  border-radius: 999px;
-  border: 1.5px solid var(--color-ink);
-  background-color: #fff;
-  font: inherit;
-}
-
-.demo-form .btn {
-  min-height: 52px;
-}
-
-.demo-error {
-  flex-basis: 100%;
-  color: #8a1c1c;
-  font-weight: 500;
-}
-
-.demo-sent {
-  flex: 1 1 380px;
-  font-size: 18px;
-  font-weight: 700;
+.demo-card .lead-form-consent {
+  color: #2c3a34;
 }
 
 @media (max-width: 768px) {
@@ -118,11 +68,6 @@ export default {
 
   .demo-card {
     padding: 40px 24px;
-  }
-
-  .demo-copy,
-  .demo-form {
-    flex-basis: 100%;
   }
 }
 </style>

@@ -1,21 +1,23 @@
 <template>
   <section id="top" class="hero container">
     <div class="hero-copy">
-      <span class="hero-badge">AI service requests for real estate</span>
-      <h1 class="hero-title">Tenants scan. AI handles the rest.</h1>
+      <span class="hero-badge">For property managers and landlords</span>
+      <h1 class="hero-title">Every tenant report arrives complete — no phone tag</h1>
       <p class="hero-lead">
-        Put a QR code in every stairwell, laundry room and apartment. Tenants scan it, land in
-        WhatsApp, and an AI assistant collects the details, photos and location — then routes a
-        complete work order to the right person.
+        Tenants scan a QR code and report on WhatsApp in 30 seconds. Your team gets the photos,
+        location and priority automatically.
       </p>
-      <div class="hero-buttons">
-        <router-link :to="{ path: '/', hash: '#demo' }" class="btn btn-primary">Book a demo</router-link>
-        <router-link :to="{ path: '/', hash: '#how' }" class="btn btn-outline">See how it works</router-link>
-      </div>
+      <p class="hero-offer">
+        In 20 minutes you'll see a real case go from QR scan to booked repair, and get a QR rollout
+        plan for your buildings.
+      </p>
+
+      <LeadForm id="hero-demo" />
+
       <ul class="hero-points">
-        <li v-for="point in points" :key="point">
-          <BaseIcon name="check" :size="18" :stroke-width="2.2" />
-          {{ point }}
+        <li v-for="point in points" :key="point.title">
+          <BaseIcon name="check" :size="20" :stroke-width="2.2" />
+          <span><b>{{ point.title }}</b> {{ point.text }}</span>
         </li>
       </ul>
     </div>
@@ -29,6 +31,7 @@
 
 <script>
 import BaseIcon from '@/components/BaseIcon.vue'
+import LeadForm from '@/components/home/LeadForm.vue'
 import QrSticker from '@/components/home/QrSticker.vue'
 import PhoneChat from '@/components/home/PhoneChat.vue'
 
@@ -36,15 +39,16 @@ export default {
   name: 'HeroSection',
   components: {
     BaseIcon,
+    LeadForm,
     QrSticker,
     PhoneChat
   },
   data() {
     return {
       points: [
-        'No app for tenants to install',
-        'Answers 24/7, in any language',
-        'Works with your property system'
+        { title: 'Tenants will actually use it:', text: 'no app, no login, just the WhatsApp they already have.' },
+        { title: 'No extra work for your team:', text: 'cases sync with your property system or email.' },
+        { title: 'Emergencies are never missed:', text: 'water leaks, lockouts and no heating escalate to your staff instantly.' }
       ]
     }
   }
@@ -52,12 +56,12 @@ export default {
 </script>
 
 <style>
-.hero {
+.hero.container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 56px;
-  padding-top: 72px;
+  padding-top: 56px;
   padding-bottom: 64px;
 }
 
@@ -80,7 +84,7 @@ export default {
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+  font-size: clamp(2rem, 4.8vw, 3.4rem);
   line-height: 1.04;
   letter-spacing: -0.02em;
 }
@@ -91,27 +95,34 @@ export default {
   max-width: 540px;
 }
 
-.hero-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+.hero-offer {
+  max-width: 540px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .hero-points {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px 20px;
-  font-size: 14px;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 560px;
+  font-size: 15px;
   color: var(--color-muted);
 }
 
 .hero-points li {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.hero-points b {
+  color: var(--color-ink);
 }
 
 .hero-points svg {
+  flex-shrink: 0;
+  margin-top: 2px;
   color: var(--color-primary);
 }
 
@@ -129,8 +140,8 @@ export default {
 }
 
 @media (max-width: 768px) {
-  .hero {
-    padding-top: 48px;
+  .hero.container {
+    padding-top: 24px;
     gap: 40px;
   }
 
@@ -139,8 +150,16 @@ export default {
     flex-basis: 100%;
   }
 
+  .hero-copy {
+    gap: 16px;
+  }
+
   .hero-lead {
-    font-size: 18px;
+    font-size: 17px;
+  }
+
+  .hero-offer {
+    font-size: 15px;
   }
 }
 </style>
