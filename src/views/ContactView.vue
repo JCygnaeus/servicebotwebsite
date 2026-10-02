@@ -1,31 +1,31 @@
 <template>
   <div class="contact">
-    <h1>Contact</h1>
+    <h1>{{ $t('contact.title') }}</h1>
 
     <form v-if="!sent" class="contact-form" @submit.prevent="send_message()">
       <label>
-        Name
+        {{ $t('contact.name') }}
         <input v-model="form.name" type="text" required />
       </label>
 
       <label>
-        Email
+        {{ $t('contact.email') }}
         <input v-model="form.email" type="email" required />
       </label>
 
       <label>
-        Message
+        {{ $t('contact.message') }}
         <textarea v-model="form.message" rows="5" required></textarea>
       </label>
 
-      <p v-if="error" class="contact-error">{{ error }}</p>
+      <p v-if="error" class="contact-error">{{ $t('contact.error') }}</p>
 
-      <button type="submit" class="primary-btn" :disabled="sending">
-        {{ sending ? 'Sending...' : 'Send' }}
+      <button type="submit" class="btn btn-primary" :disabled="sending">
+        {{ sending ? $t('contact.sending') : $t('contact.send') }}
       </button>
     </form>
 
-    <p v-else>Thanks! We will get back to you soon.</p>
+    <p v-else>{{ $t('contact.sent') }}</p>
   </div>
 </template>
 
@@ -43,18 +43,18 @@ export default {
       },
       sending: false,
       sent: false,
-      error: ''
+      error: false
     }
   },
   methods: {
     async send_message() {
       this.sending = true
-      this.error = ''
+      this.error = false
       try {
         await api.post('/contact', this.form)
         this.sent = true
       } catch (err) {
-        this.error = 'Could not send the message. Please try again.'
+        this.error = true
       } finally {
         this.sending = false
       }
@@ -66,6 +66,8 @@ export default {
 <style>
 .contact {
   max-width: 600px;
+  margin: 0 auto;
+  padding: 64px 24px 96px;
 }
 
 .contact h1 {
@@ -84,14 +86,15 @@ export default {
   flex-direction: column;
   gap: 0.25rem;
   font-weight: 600;
-  color: #2c3e50;
+  color: var(--color-ink);
 }
 
 .contact-form input,
 .contact-form textarea {
   padding: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1.5px solid var(--color-line);
+  border-radius: 10px;
+  background-color: var(--color-surface);
   font: inherit;
 }
 

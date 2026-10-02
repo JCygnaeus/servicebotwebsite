@@ -1,8 +1,8 @@
 <template>
   <div class="about">
-    <h1>About</h1>
+    <h1>{{ $t('about.title') }}</h1>
 
-    <p>Servicebot helps companies automate customer service.</p>
+    <p>{{ $t('about.text') }}</p>
 
   </div>
 </template>
@@ -23,6 +23,8 @@ export default {
 <style>
 .about {
   max-width: 600px;
+  margin: 0 auto;
+  padding: 64px 24px 96px;
 }
 
 .about h1 {
