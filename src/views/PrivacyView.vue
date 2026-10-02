@@ -1,16 +1,13 @@
 <template>
   <div class="privacy">
-    <h1>Privacy policy</h1>
+    <h1>{{ $t('privacy.title') }}</h1>
 
     <!-- TODO: replace with the real privacy policy before launch -->
-    <p>
-      When you book a demo, we ask for your name, email, company and how many homes you run. We
-      only use this to set up your demo.
-    </p>
+    <p>{{ $t('privacy.text') }}</p>
 
     <p>
-      Want to see, fix or delete your data?
-      <router-link to="/contact">Contact us</router-link>.
+      {{ $t('privacy.question') }}
+      <router-link to="/contact">{{ $t('privacy.contactLink') }}</router-link>.
     </p>
 
   </div>

@@ -1,8 +1,8 @@
 <template>
   <div class="about">
-    <h1>About</h1>
+    <h1>{{ $t('about.title') }}</h1>
 
-    <p>Servicebot helps landlords fix things faster. Tenants tell our AI about problems on WhatsApp.</p>
+    <p>{{ $t('about.text') }}</p>
 
   </div>
 </template>

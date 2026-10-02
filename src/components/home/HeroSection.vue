@@ -1,21 +1,15 @@
 <template>
   <section id="top" class="hero container">
     <div class="hero-copy">
-      <span class="hero-badge">For landlords and building managers</span>
-      <h1 class="hero-title">Get every repair report in full. No more calls back and forth.</h1>
-      <p class="hero-lead">
-        Tenants scan a code and tell you what broke on WhatsApp. You get photos, the exact spot,
-        and how urgent it is.
-      </p>
-      <p class="hero-offer">
-        In 20 minutes, see a real report go from scan to fixed. You also get a plan for your
-        buildings.
-      </p>
+      <span class="hero-badge">{{ $t('hero.badge') }}</span>
+      <h1 class="hero-title">{{ $t('hero.title') }}</h1>
+      <p class="hero-lead">{{ $t('hero.lead') }}</p>
+      <p class="hero-offer">{{ $t('hero.offer') }}</p>
 
       <LeadForm id="hero-demo" />
 
       <ul class="hero-points">
-        <li v-for="point in points" :key="point.title">
+        <li v-for="point in $t('hero.points')" :key="point.title">
           <BaseIcon name="check" :size="20" :stroke-width="2.2" />
           <span><b>{{ point.title }}</b> {{ point.text }}</span>
         </li>
@@ -42,15 +36,6 @@ export default {
     LeadForm,
     QrSticker,
     PhoneChat
-  },
-  data() {
-    return {
-      points: [
-        { title: 'Tenants will use it.', text: 'There is no app to get. They just use WhatsApp.' },
-        { title: 'No extra work for your team:', text: 'cases sync with your property system or email.' },
-        { title: 'Big problems get help fast.', text: 'Leaks, lockouts and no heat go straight to your staff.' }
-      ]
-    }
   }
 }
 </script>

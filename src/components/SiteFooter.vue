@@ -1,8 +1,8 @@
 <template>
   <footer class="site-footer">
     <div class="container site-footer-bottom">
-      <span>&copy; {{ year }} Servicebot. WhatsApp is a trademark of its respective owner.</span>
-      <router-link to="/privacy">Privacy policy</router-link>
+      <span>&copy; {{ year }} {{ $t('footer.trademark') }}</span>
+      <router-link to="/privacy">{{ $t('footer.privacy') }}</router-link>
     </div>
   </footer>
 </template>

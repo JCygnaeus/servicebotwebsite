@@ -2,11 +2,8 @@
   <section id="demo" class="container demo">
     <div class="demo-card">
       <div class="demo-copy">
-        <h2 class="section-title">Put your first QR code up this week</h2>
-        <p>
-          In 20 minutes, see a real report go from scan to fixed. You also get a plan for your
-          buildings.
-        </p>
+        <h2 class="section-title">{{ $t('demo.title') }}</h2>
+        <p>{{ $t('demo.text') }}</p>
       </div>
 
       <LeadForm id="bottom-demo" />

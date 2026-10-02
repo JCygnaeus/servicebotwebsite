@@ -2,9 +2,9 @@
   <section id="how" class="section">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">How it works</span>
-        <h2 class="section-title">From broken to booked in four steps</h2>
-        <p>The code knows where the tenant is. So the AI only asks what it needs.</p>
+        <span class="eyebrow">{{ $t('how.eyebrow') }}</span>
+        <h2 class="section-title">{{ $t('how.title') }}</h2>
+        <p>{{ $t('how.lead') }}</p>
       </div>
 
       <ol class="steps">
@@ -34,28 +34,12 @@ export default {
   },
   data() {
     return {
-      steps: [
-        {
-          icon: 'qr',
-          title: 'Scan the QR code',
-          text: 'Each code is tied to a building, unit or shared space — stairwell, garage, laundry room.'
-        },
-        {
-          icon: 'chat',
-          title: 'Chat on WhatsApp',
-          text: 'WhatsApp opens and knows the spot. The AI asks a few questions and asks for photos.'
-        },
-        {
-          icon: 'triage',
-          title: 'AI sorts the report',
-          text: 'The AI picks the kind of problem and how urgent it is. It writes a short note. Big problems get sent on right away.'
-        },
-        {
-          icon: 'calendar',
-          title: 'Routed and resolved',
-          text: 'The work order lands with the right caretaker or contractor. The tenant gets status updates in the same chat.'
-        }
-      ]
+      icons: ['qr', 'chat', 'triage', 'calendar']
+    }
+  },
+  computed: {
+    steps() {
+      return this.$t('how.steps').map((step, index) => ({ ...step, icon: this.icons[index] }))
     }
   }
 }

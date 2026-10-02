@@ -1,31 +1,31 @@
 <template>
   <div class="contact">
-    <h1>Contact</h1>
+    <h1>{{ $t('contact.title') }}</h1>
 
     <form v-if="!sent" class="contact-form" @submit.prevent="send_message()">
       <label>
-        Name
+        {{ $t('contact.name') }}
         <input v-model="form.name" type="text" required />
       </label>
 
       <label>
-        Email
+        {{ $t('contact.email') }}
         <input v-model="form.email" type="email" required />
       </label>
 
       <label>
-        Message
+        {{ $t('contact.message') }}
         <textarea v-model="form.message" rows="5" required></textarea>
       </label>
 
-      <p v-if="error" class="contact-error">{{ error }}</p>
+      <p v-if="error" class="contact-error">{{ $t('contact.error') }}</p>
 
       <button type="submit" class="btn btn-primary" :disabled="sending">
-        {{ sending ? 'Sending...' : 'Send' }}
+        {{ sending ? $t('contact.sending') : $t('contact.send') }}
       </button>
     </form>
 
-    <p v-else>Thanks! We will get back to you soon.</p>
+    <p v-else>{{ $t('contact.sent') }}</p>
   </div>
 </template>
 
@@ -43,18 +43,18 @@ export default {
       },
       sending: false,
       sent: false,
-      error: ''
+      error: false
     }
   },
   methods: {
     async send_message() {
       this.sending = true
-      this.error = ''
+      this.error = false
       try {
         await api.post('/contact', this.form)
         this.sent = true
       } catch (err) {
-        this.error = 'Could not send the message. Please try again.'
+        this.error = true
       } finally {
         this.sending = false
       }

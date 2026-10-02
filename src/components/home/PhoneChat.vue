@@ -1,17 +1,17 @@
 <template>
-  <div class="phone" role="img" aria-label="Example WhatsApp conversation between a tenant and the AI assistant">
+  <div class="phone" role="img" :aria-label="$t('phone.label')">
     <div class="phone-screen">
       <div class="phone-chat-header">
         <span class="phone-avatar">AI</span>
         <div class="phone-chat-title">
-          <span class="phone-chat-name">Elm Properties Service</span>
-          <span class="phone-chat-status">AI assistant · replies instantly</span>
+          <span class="phone-chat-name">{{ $t('phone.name') }}</span>
+          <span class="phone-chat-status">{{ $t('phone.status') }}</span>
         </div>
       </div>
 
       <div class="phone-messages">
-        <template v-for="(message, index) in messages" :key="index">
-          <div v-if="message.photo" class="phone-bubble phone-bubble-out phone-photo">Photo</div>
+        <template v-for="(message, index) in $t('phone.messages')" :key="index">
+          <div v-if="message.photo" class="phone-bubble phone-bubble-out phone-photo">{{ $t('phone.photo') }}</div>
           <div v-else class="phone-bubble" :class="message.from === 'tenant' ? 'phone-bubble-out' : 'phone-bubble-in'">
             {{ message.text }}
           </div>
@@ -19,7 +19,7 @@
       </div>
 
       <div class="phone-composer">
-        <span class="phone-input">Message</span>
+        <span class="phone-input">{{ $t('phone.composer') }}</span>
         <span class="phone-send"></span>
       </div>
     </div>
@@ -29,19 +29,7 @@
 <script>
 
 export default {
-  name: 'PhoneChat',
-  data() {
-    return {
-      messages: [
-        { from: 'tenant', text: 'Hi! Report from QR: Laundry room, Elm Court 12' },
-        { from: 'bot', text: "Thanks! I can see you're in the laundry room at Elm Court 12. What's the problem?" },
-        { from: 'tenant', text: 'Washing machine 2 is leaking water on the floor' },
-        { from: 'bot', text: 'Sorry about that. Could you send a photo? And is the water still running?' },
-        { from: 'tenant', photo: true },
-        { from: 'bot', text: "Case #1042 created — priority High. Maintenance has been notified. I'll message you when it's booked." }
-      ]
-    }
-  }
+  name: 'PhoneChat'
 }
 </script>
 
