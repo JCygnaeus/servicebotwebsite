@@ -2,7 +2,7 @@
   <div class="about">
     <h1>About</h1>
 
-    <p>Servicebot helps companies automate customer service.</p>
+    <p>Servicebot helps real estate companies handle tenant service requests with an AI assistant on WhatsApp.</p>
 
   </div>
 </template>
@@ -23,6 +23,8 @@ export default {
 <style>
 .about {
   max-width: 600px;
+  margin: 0 auto;
+  padding: 64px 24px 96px;
 }
 
 .about h1 {

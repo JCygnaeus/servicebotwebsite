@@ -20,7 +20,7 @@
 
       <p v-if="error" class="contact-error">{{ error }}</p>
 
-      <button type="submit" class="primary-btn" :disabled="sending">
+      <button type="submit" class="btn btn-primary" :disabled="sending">
         {{ sending ? 'Sending...' : 'Send' }}
       </button>
     </form>
@@ -66,6 +66,8 @@ export default {
 <style>
 .contact {
   max-width: 600px;
+  margin: 0 auto;
+  padding: 64px 24px 96px;
 }
 
 .contact h1 {
@@ -84,14 +86,15 @@ export default {
   flex-direction: column;
   gap: 0.25rem;
   font-weight: 600;
-  color: #2c3e50;
+  color: var(--color-ink);
 }
 
 .contact-form input,
 .contact-form textarea {
   padding: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1.5px solid var(--color-line);
+  border-radius: 10px;
+  background-color: var(--color-surface);
   font: inherit;
 }
 

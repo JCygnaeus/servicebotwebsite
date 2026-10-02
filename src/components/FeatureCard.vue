@@ -1,20 +1,29 @@
 <template>
   <div class="feature-card">
+    <BaseIcon v-if="icon" :name="icon" :size="28" />
     <h3>{{ title }}</h3>
     <p>{{ text }}</p>
   </div>
 </template>
 
 <script>
+import BaseIcon from '@/components/BaseIcon.vue'
 
 export default {
   name: 'FeatureCard',
+  components: {
+    BaseIcon
+  },
   props: {
     title: {
       type: String,
       required: true
     },
     text: {
+      type: String,
+      default: ''
+    },
+    icon: {
       type: String,
       default: ''
     }
@@ -24,18 +33,23 @@ export default {
 
 <style>
 .feature-card {
-  background-color: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 32px;
+  background-color: var(--color-bg);
+}
+
+.feature-card svg {
+  color: var(--color-primary);
 }
 
 .feature-card h3 {
-  font-size: 1.15rem;
-  margin-bottom: 0.5rem;
+  font-size: 20px;
 }
 
 .feature-card p {
-  color: #555;
+  font-size: 15px;
+  color: var(--color-muted);
 }
 </style>
