@@ -33,8 +33,8 @@
       <p v-if="error" class="lead-form-error">{{ error }}</p>
 
       <p class="lead-form-consent">
-        We use your details only to schedule and follow up on your demo.
-        See our <router-link to="/privacy">privacy policy</router-link>.
+        We only use this to set up your demo.
+        Read our <router-link to="/privacy">privacy policy</router-link>.
       </p>
     </form>
 

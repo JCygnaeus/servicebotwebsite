@@ -4,8 +4,8 @@
       <div class="demo-copy">
         <h2 class="section-title">Put your first QR code up this week</h2>
         <p>
-          In 20 minutes you'll see a real case go from QR scan to booked repair, and get a QR
-          rollout plan for your buildings.
+          In 20 minutes, see a real report go from scan to fixed. You also get a plan for your
+          buildings.
         </p>
       </div>
 

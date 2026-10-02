@@ -2,7 +2,7 @@
   <div class="about">
     <h1>About</h1>
 
-    <p>Servicebot helps real estate companies handle tenant service requests with an AI assistant on WhatsApp.</p>
+    <p>Servicebot helps landlords fix things faster. Tenants tell our AI about problems on WhatsApp.</p>
 
   </div>
 </template>

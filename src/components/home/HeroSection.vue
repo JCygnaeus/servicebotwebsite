@@ -1,15 +1,15 @@
 <template>
   <section id="top" class="hero container">
     <div class="hero-copy">
-      <span class="hero-badge">For property managers and landlords</span>
-      <h1 class="hero-title">Every tenant report arrives complete — no phone tag</h1>
+      <span class="hero-badge">For landlords and building managers</span>
+      <h1 class="hero-title">Get every repair report in full. No more calls back and forth.</h1>
       <p class="hero-lead">
-        Tenants scan a QR code and report on WhatsApp in 30 seconds. Your team gets the photos,
-        location and priority automatically.
+        Tenants scan a code and tell you what broke on WhatsApp. You get photos, the exact spot,
+        and how urgent it is.
       </p>
       <p class="hero-offer">
-        In 20 minutes you'll see a real case go from QR scan to booked repair, and get a QR rollout
-        plan for your buildings.
+        In 20 minutes, see a real report go from scan to fixed. You also get a plan for your
+        buildings.
       </p>
 
       <LeadForm id="hero-demo" />
@@ -46,9 +46,9 @@ export default {
   data() {
     return {
       points: [
-        { title: 'Tenants will actually use it:', text: 'no app, no login, just the WhatsApp they already have.' },
+        { title: 'Tenants will use it.', text: 'There is no app to get. They just use WhatsApp.' },
         { title: 'No extra work for your team:', text: 'cases sync with your property system or email.' },
-        { title: 'Emergencies are never missed:', text: 'water leaks, lockouts and no heating escalate to your staff instantly.' }
+        { title: 'Big problems get help fast.', text: 'Leaks, lockouts and no heat go straight to your staff.' }
       ]
     }
   }

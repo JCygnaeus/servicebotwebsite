@@ -4,7 +4,7 @@
       <div class="section-head">
         <span class="eyebrow">How it works</span>
         <h2 class="section-title">From broken to booked in four steps</h2>
-        <p>The QR code already knows where the tenant is standing, so the AI only has to ask what matters.</p>
+        <p>The code knows where the tenant is. So the AI only asks what it needs.</p>
       </div>
 
       <ol class="steps">
@@ -43,12 +43,12 @@ export default {
         {
           icon: 'chat',
           title: 'Chat on WhatsApp',
-          text: 'WhatsApp opens with the location pre-filled. The AI asks follow-up questions and requests photos.'
+          text: 'WhatsApp opens and knows the spot. The AI asks a few questions and asks for photos.'
         },
         {
           icon: 'triage',
-          title: 'AI triages the case',
-          text: 'Category, urgency and a clear summary are set automatically. Emergencies trigger an instant escalation.'
+          title: 'AI sorts the report',
+          text: 'The AI picks the kind of problem and how urgent it is. It writes a short note. Big problems get sent on right away.'
         },
         {
           icon: 'calendar',

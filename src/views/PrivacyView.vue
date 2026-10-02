@@ -4,13 +4,13 @@
 
     <!-- TODO: replace with the real privacy policy before launch -->
     <p>
-      When you request a demo we collect your name, work email, company and the number of homes you
-      manage. We use these details only to schedule and follow up on your demo.
+      When you book a demo, we ask for your name, email, company and how many homes you run. We
+      only use this to set up your demo.
     </p>
 
     <p>
-      To ask about, correct or delete your data, contact us via the
-      <router-link to="/contact">contact page</router-link>.
+      Want to see, fix or delete your data?
+      <router-link to="/contact">Contact us</router-link>.
     </p>
 
   </div>
