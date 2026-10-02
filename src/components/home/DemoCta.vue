@@ -26,8 +26,8 @@ export default {
 </script>
 
 <style>
-.demo {
-  margin-bottom: 96px;
+.demo.container {
+  margin-bottom: 10px;
 }
 
 .demo-card {
@@ -62,9 +62,6 @@ export default {
 }
 
 @media (max-width: 768px) {
-  .demo {
-    margin-bottom: 64px;
-  }
 
   .demo-card {
     padding: 40px 24px;
